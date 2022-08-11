@@ -57,13 +57,11 @@ while tour0:
 if ans == 'y' or ans == 'Y':
     tour = 1
     while tour:
-        dicestr = input(
-            'Paste your string now with Ctrl + Shift + V\nnote that it must be 256 bits long\n')
+        dicestr = input('Paste your string now with Ctrl + Shift + V\nnote that it must be 256 bits long\n')
         if len(dicestr) != 256:
             print(color.RED + 'Binary key has to be 256 bits long' + color.END)
         elif check_bin(dicestr) is False:
-            print(
-                color.RED + 'String is not binary! It has to contain only 0 and 1' + color.END)
+            print(color.RED + 'String is not binary! It has to contain only 0 and 1' + color.END)
         else:
             print(color.GREEN + 'String accepted!' + color.END)
             tour = 0
@@ -99,10 +97,8 @@ print(color.DARKCYAN + '\nThis is your hex key:' + color.END)
 print(hexadecimal)
 
 # Coin selection
-coins_dict = {1: BTC, 2: ETH, 3: LTC, 4: BCH,
-              5: BSV, 6: DASH, 7: ZEC, 8: DOGE, 9: BTCTEST}
-print(color.DARKCYAN
-      + 'Please select coin (write the corresponding numerical index):' + color.END)
+coins_dict = {1: BTC, 2: ETH, 3: LTC, 4: BCH, 5: BSV, 6: DASH, 7: ZEC, 8: DOGE, 9: BTCTEST}
+print(color.DARKCYAN + 'Please select coin (write the corresponding numerical index):' + color.END)
 print('1 -> Bitcoin')
 print('2 -> Ethereum')
 print('3 -> Litecoin')
@@ -117,8 +113,7 @@ while tour2:
     coin_sel = input(color.DARKCYAN + 'Coin: ' + color.END)
     coin_sel = int(coin_sel)
     if (coin_sel > 0 and coin_sel < 10):
-        print(color.GREEN
-              + f'Selected coin: {coins_dict[coin_sel]}' + color.END)
+        print(color.GREEN + f'Selected coin: {coins_dict[coin_sel]}' + color.END)
         tour2 = 0
     else:
         print(color.RED + 'Unaccepted value!' + color.END)
