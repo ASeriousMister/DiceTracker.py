@@ -1,5 +1,5 @@
 # DiceTracker.py
-A tool that returns private keys and addresses for many different cryptocurrencies, allowing users to paste a 256 bits binary key or helping them tracking 256 dice rolls.
+A tool that returns private keys and addresses for many different cryptocurrencies, allowing users to paste a 256 bits binary key, the result of 256 dice rolls, or helping them tracking 256 dice rolls.
 
 ### Installation
 Install git, python3 and pip (if needed):
@@ -25,6 +25,9 @@ At the end, the tool will show private keys and public addresses.
 These information are not stored anywhere, so make sure to backup them before sharing addresses or receiving transactions.
 QrCodes of the information can be obtained with tools like qrencode.
 
+### Example keys
+- Binary key: 0000001100101011100101110101101000101000011001011010000111010100000011101100011111110010001000101010010010101101111100010011100111011100110110101001111001110110100011001010100110101101010000010100110000110011011010111101001110010101110010010001000001101001
+- 256 dice rolls reuslts: 1423353625241324352413243526252525243534666554653645463535262525162525363532526251252626353433533536225356225251414255336355242142253633534242411252535364453534242525161525343422525161625253434252516162525434352521661252443434252516162525434352525166542512
 
 ### Supported coins
 The tools supports the following coins, to add more simply edit the code referring to hdwallet documentation for the correct symbols
