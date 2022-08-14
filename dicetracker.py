@@ -17,54 +17,77 @@ class color:
     END = '\033[0m'
 
 
+# Checks if string is binary
 def check_bin(string):
     # every char will be checked if it is in the string '01'
     t = '01'
-# registers failure
-    fail = 0
-# iterate through the string
-    for char in string:
-        if char not in t:
-            fail = 1
-            break
-        else:
-            pass
-# returns True or False
-    if fail:
-        return False
-    else:
+    if all(char in t for char in string):
         return True
+    else:
+        return False
+    
+
+# Checks if string contains the results of dice rolls (1 to 6)
+def check_dice(string):
+    # every char will be checked if it is in the string '01'
+    t = '123456'
+    if all(char in t for char in string):
+        return True
+    else:
+        return False
+    
+
+# converts string made by numbers from 1 to 6 to a binary string
+def six_to_bin(string):
+    binstr = ''
+    for diceres in string:
+        nn = int(diceres)
+        binnn = nn % 2
+        cc = str(binnn)
+        binstr += cc
+    return binstr
 
 
 # Intro
 print(color.YELLOW + 'Welcome to dice tracker!' + color.END)
 print('This tool derives private keys and public addresses from 256 bits binary keys')
-print('Binary key can be pasted by the user or can be inserted tracking the result of 256 dire rolls')
+print('Key can be pasted by the user (in binary or as the result of dice rolls) or can be inserted tracking the result of 256 dire rolls')
 
 # Stores the binary string
 dicestr = ''
-
-print(color.GREEN + '\nDo you want to paste a binary key?(y/n)' + color.END)
+print(color.GREEN + '\nDo you want to paste a binary key or the result of previous dice rolls?(y/n)' + color.END)
 print('Unless this tool will help you tracking dice rolls')
 tour0 = 1
+ans = ''    # decides if the user pastes key or wants to track dice rolls
 while tour0:
     ans = input()
     if ans == 'y' or ans == 'Y' or ans == 'n' or ans == 'N':
         tour0 = 0
     else:
         print(color.RED + 'Unaccepted answer! Only type y for yes or n for no' + color.END)
+
 # user wants to paste the key
 if ans == 'y' or ans == 'Y':
     tour = 1
     while tour:
+        is_dice = False
         dicestr = input('Paste your string now with Ctrl + Shift + V\nnote that it must be 256 bits long\n')
         if len(dicestr) != 256:
             print(color.RED + 'Binary key has to be 256 bits long' + color.END)
-        elif check_bin(dicestr) is False:
-            print(color.RED + 'String is not binary! It has to contain only 0 and 1' + color.END)
         else:
-            print(color.GREEN + 'String accepted!' + color.END)
-            tour = 0
+            is_bin = check_bin(dicestr)
+            is_dice = check_dice(dicestr)
+            if is_bin:
+                print(color.GREEN + 'String accepted!' + color.END)
+                tour = 0
+            elif is_dice:
+                dicestr = six_to_bin(dicestr)
+                print(color.GREEN + 'String accepted and converted to binary!' + color.END)
+                tour = 0
+            else:
+                print(color.RED + 'String is not binary or is not the result of dice rolls!' + color.END)
+                print(color.YELLOW + 'It has to contain only 0 and 1 or only numbers from 1 to 6' + color.END)
+
 # user wants to track dice rolls
 elif ans == 'n' or ans == 'N':
     # input result of dice rolls
