@@ -70,6 +70,7 @@ while tour0:
 if ans == 'y' or ans == 'Y':
     tour = 1
     while tour:
+        is_bin = False
         is_dice = False
         dicestr = input('Paste your string now with Ctrl + Shift + V\nnote that it must be 256 digits long\n')
         if len(dicestr) != 256:
