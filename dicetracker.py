@@ -37,7 +37,7 @@ def check_dice(string):
         return False
     
 
-# converts string made by numbers from 1 to 6 to a binary string
+# Converts string made by numbers from 1 to 6 to a binary string
 def six_to_bin(string):
     binstr = ''
     for diceres in string:
@@ -66,7 +66,7 @@ while tour0:
     else:
         print(color.RED + 'Unaccepted answer! Only type y for yes or n for no' + color.END)
 
-# user wants to paste the key
+# User wants to paste the key
 if ans == 'y' or ans == 'Y':
     tour = 1
     while tour:
@@ -109,11 +109,12 @@ elif ans == 'n' or ans == 'N':
                 res = str(res)
                 dicestr += res
                 dicerolls += 1
+
 # Printing the result of all the dice rolls
     print(color.DARKCYAN + '\nThis is your binary key:' + color.END)
     print(dicestr)
 
-# converting binary to HEX
+# Converting binary to HEX
 hexadecimal = '%0*X' % ((len(dicestr) + 3) // 4, int(dicestr, 2))
 
 print(color.DARKCYAN + '\nThis is your hex key:' + color.END)
