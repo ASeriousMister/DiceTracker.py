@@ -51,7 +51,7 @@ def six_to_bin(string):
 # Intro
 print(color.YELLOW + 'Welcome to dice tracker!' + color.END)
 print('This tool derives private keys and public addresses from 256 bits binary keys')
-print('Key can be pasted by the user (in binary or as the result of dice rolls) or can be inserted tracking the result of 256 dire rolls')
+print('Key can be pasted by the user (in binary or as the result of dice rolls) or can be inserted tracking the result of 256 dice rolls')
 
 # Stores the binary string
 dicestr = ''
@@ -71,9 +71,9 @@ if ans == 'y' or ans == 'Y':
     tour = 1
     while tour:
         is_dice = False
-        dicestr = input('Paste your string now with Ctrl + Shift + V\nnote that it must be 256 bits long\n')
+        dicestr = input('Paste your string now with Ctrl + Shift + V\nnote that it must be 256 digits long\n')
         if len(dicestr) != 256:
-            print(color.RED + 'Binary key has to be 256 bits long' + color.END)
+            print(color.RED + 'Binary key has to be 256 digits long' + color.END)
         else:
             is_bin = check_bin(dicestr)
             is_dice = check_dice(dicestr)
