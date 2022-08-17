@@ -123,7 +123,7 @@ print(hexadecimal)
 
 # Coin selection
 coins_dict = {1: BTC, 2: ETH, 3: LTC, 4: BCH, 5: BSV, 6: DASH, 7: ZEC, 8: DOGE, 9: BTCTEST}
-print(color.DARKCYAN + 'Please select coin (write the corresponding numerical index):' + color.END)
+print(color.DARKCYAN + '\nPlease select coin (write the corresponding numerical index):' + color.END)
 print('1 -> Bitcoin')
 print('2 -> Ethereum')
 print('3 -> Litecoin')
