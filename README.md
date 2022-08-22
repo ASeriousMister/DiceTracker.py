@@ -1,6 +1,9 @@
 # DiceTracker.py
 A tool that returns private keys and addresses for many different cryptocurrencies, allowing users to paste a 256 bits binary key, the result of 256 dice rolls, or helping them tracking 256 dice rolls.
 
+### Tutorial
+[Here](https://anubitux.org/how-to-generate-random-paper-wallets-with-anubitux/) you can see how the tool works.
+
 ### Installation
 Install git, python3 and pip (if needed):
 ```
