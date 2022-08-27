@@ -43,6 +43,7 @@ The tools supports the following coins, to add more simply edit the code referri
 - ZCash
 - DogeCoin
 - Bitcoin Testnet
+- Monero
 
 ### Optional: using Virtual Environment
 Install python virtual environments
