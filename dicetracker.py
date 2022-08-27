@@ -2,6 +2,7 @@
 
 from hdwallet import HDWallet
 from hdwallet.symbols import BTC, ETH, LTC, BCH, BSV, DASH, ZEC, DOGE, BTCTEST
+from monero.seed import Seed
 
 
 class color:
@@ -124,41 +125,59 @@ print(hexadecimal)
 # Coin selection
 coins_dict = {1: BTC, 2: ETH, 3: LTC, 4: BCH, 5: BSV, 6: DASH, 7: ZEC, 8: DOGE, 9: BTCTEST}
 print(color.DARKCYAN + '\nPlease select coin (write the corresponding numerical index):' + color.END)
-print('1 -> Bitcoin')
-print('2 -> Ethereum')
-print('3 -> Litecoin')
-print('4 -> Bitcoin Cash')
-print('5 -> Bitcoin SV')
-print('6 -> Dash')
-print('7 -> ZCash')
-print('8 -> DogeCoin')
-print('9 -> Bitcoin Testnet')
+print(' 1 -> Bitcoin')
+print(' 2 -> Ethereum')
+print(' 3 -> Litecoin')
+print(' 4 -> Bitcoin Cash')
+print(' 5 -> Bitcoin SV')
+print(' 6 -> Dash')
+print(' 7 -> ZCash')
+print(' 8 -> DogeCoin')
+print(' 9 -> Bitcoin Testnet')
+print('10 -> Monero')
 tour2 = 1
 while tour2:
     coin_sel = input(color.DARKCYAN + 'Coin: ' + color.END)
     coin_sel = int(coin_sel)
-    if (coin_sel > 0 and coin_sel < 10):
+    if coin_sel > 0 and coin_sel < 10:
         print(color.GREEN + f'Selected coin: {coins_dict[coin_sel]}' + color.END)
+        tour2 = 0
+    elif coin_sel == 10:
+        print(color.GREEN + 'Selected coin: XMR' + color.END)
         tour2 = 0
     else:
         print(color.RED + 'Unaccepted value!' + color.END)
-        print('Type a number between 1 and 9')
+        print('Type a number between 1 and 10')
 
 
 # Derivation
 print(color.DARKCYAN + '\n=== KEYS AND ADDRESSES ===' + color.END)
-coin = coins_dict[coin_sel]
-# Initialize wallet
-hdwallet: HDWallet = HDWallet(symbol=coin)
-# Obtain wallet from private key
-hdwallet.from_private_key(private_key=hexadecimal)
-# printing keys
+if coin_sel > 0 and coin_sel < 10:
+    coin = coins_dict[coin_sel]
+    # Initialize wallet
+    hdwallet: HDWallet = HDWallet(symbol=coin)
+    # Obtain wallet from private key
+    hdwallet.from_private_key(private_key=hexadecimal)
+    # printing keys
 if coin_sel == 2:
+    # Ethereum Private key
     print(f'Wallet private key: 0x{hexadecimal}')
+elif coin_sel == 10:
+    # Monero derivation
+    s = Seed(hexadecimal)
+    print('Secret spend key: ' + s.secret_spend_key())
+    print('Secret view key: ' + s.secret_view_key())
+    print('Public spend key: ' + s.public_spend_key())
+    print('Public view key: ' + s.public_view_key())
+    print('Primary address: ' + str(s.public_address()))
+    quit('')
 else:
+    # Print WIF private key
     print('Wallet Important Format private key: ', hdwallet.wif())
+# Print address
 print('P2PKH Address: ', hdwallet.p2pkh_address())
 if ((coin_sel == 1) or (coin_sel == 3)):
+    # For BTC and LTC print segwit addresses
     print('P2WPKH-P2SH Address: ', hdwallet.p2wpkh_in_p2sh_address())
     print('P2WPKH Address: ', hdwallet.p2wpkh_address())
 print('')
