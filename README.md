@@ -1,5 +1,5 @@
 # DiceTracker.py
-A tool that returns private keys and addresses for many different cryptocurrencies, allowing users to paste a 256 bits binary key, the result of 256 dice rolls, or helping them tracking 256 dice rolls.
+A tool that returns private keys and addresses or generates a printable paper wallet for many different cryptocurrencies, allowing users to paste a 256 bits binary key, the result of 256 dice rolls, or helping them tracking 256 dice rolls.
 
 ### Tutorial
 [Here](https://anubitux.org/how-to-generate-random-paper-wallets-with-anubitux/) you can see how the tool works.
@@ -13,20 +13,26 @@ Clone the repository:
 ```
 git clone https://github.com/ASeriousMister/DiceTracker.py
 ```
-Install requirements:
+Move to the tool's directory
+```
+cd /path/DiceTracker.py
+```
+Install requirements (read above for Python virtual envitonments):
 ```
 pip3 install -r requirements.txt
+for Ubuntu: sudo apt install wkhtmltopdf
+for Windows: [WKHTMLTOPDF](https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_msvc2015-win64.exe)
 ```
 Run:
 ```
-python3 /path_of_the_repository/dicetracker.py
+python3 dicetracker.py
 ```
 
 ### Utilization
 User simply has to provide answers to the prompted questions.
-At the end, the tool will show private keys and public addresses.
+At the end, the tool will show private keys and public addresses and, if wanted, generates a printable paper wallet.
 These information are not stored anywhere, so make sure to backup them before sharing addresses or receiving transactions.
-QrCodes of the information can be obtained with tools like qrencode.
+QrCodes of the information can also be obtained with tools like qrencode.
 
 ### Example keys
 - Binary key: 0000001100101011100101110101101000101000011001011010000111010100000011101100011111110010001000101010010010101101111100010011100111011100110110101001111001110110100011001010100110101101010000010100110000110011011010111101001110010101110010010001000001101001
@@ -50,7 +56,7 @@ Install python virtual environments
 ```
 pip3 install virtualenv
 ```
-Now move to SeedCheck.py's directory,
+Now move to DiceTracker.py's directory,
 ```
 cd DiceTracker.py
 ```
