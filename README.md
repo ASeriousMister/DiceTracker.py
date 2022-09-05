@@ -30,8 +30,8 @@ python3 dicetracker.py
 
 ### Utilization
 User simply has to provide answers to the prompted questions.
-At the end, the tool will show private keys and public addresses and, if wanted, generates a printable paper wallet.
-These information are not stored anywhere, so make sure to backup them before sharing addresses or receiving transactions.
+At the end, the tool will show private keys and public addresses and, if wanted, generates a printable paper wallet in the PaperWallet directory.
+If user does not want to generate the printable paper wallet, keys are not stored anywhere.
 QrCodes of the information can also be obtained with tools like qrencode.
 
 ### Example keys
@@ -97,6 +97,8 @@ activate = 1
 [legacy_sect]
 activate = 1
 ```
+### Disclaimer
+Tool comes with no guarantee. Do your own research about how this tool works and in general about how cryptocurrency keys work before using it.
 
 ### Credits & Donations
 If you appreciate this work visit https://anubitux.org and consider making a donation
