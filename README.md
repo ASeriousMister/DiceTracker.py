@@ -20,10 +20,15 @@ cd /path/DiceTracker.py
 Install requirements (read above for Python virtual envitonments):
 ```
 pip3 install -r requirements.txt
-for Ubuntu: sudo apt install wkhtmltopdf
-for Windows: [WKHTMLTOPDF](https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_msvc2015-win64.exe)
 ```
-Run:
+Additional resources:
+for Ubuntu install
+```
+sudo apt install wkhtmltopdf
+```
+for Windows install [WKHTMLTOPDF](https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_msvc2015-win64.exe)
+
+Run the tool:
 ```
 python3 dicetracker.py
 ```
@@ -37,6 +42,7 @@ QrCodes of the information can also be obtained with tools like qrencode.
 ### Example keys
 - Binary key: 0000001100101011100101110101101000101000011001011010000111010100000011101100011111110010001000101010010010101101111100010011100111011100110110101001111001110110100011001010100110101101010000010100110000110011011010111101001110010101110010010001000001101001
 - 256 dice rolls reuslts: 1423353625241324352413243526252525243534666554653645463535262525162525363532526251252626353433533536225356225251414255336355242142253633534242411252535364453534242525161525343422525161625253434252516162525434352521661252443434252516162525434352525166542512
+These keys can be used only to test the tool. Do not send transactions to the addresses generated from the example keys.
 
 ### Supported coins
 The tools supports the following coins, to add more simply edit the code referring to hdwallet documentation for the correct symbols
