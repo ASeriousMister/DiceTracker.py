@@ -104,9 +104,10 @@ activate = 1
 activate = 1
 ```
 ### Disclaimer
-Tool comes with no guarantee. Do your own research about how this tool works and in general about how cryptocurrency keys work before using it.
+This ool comes with no guarantees. Do your own research about how this tool works and in general about how cryptocurrency keys work before using it.
 
 ### Credits & Donations
+This tool is part of the [AnuBitux](https://anubitux.org) project. 
 If you appreciate this work visit https://anubitux.org and consider making a donation
 - BTC: 1AnUbiYpuFsGrc1JFxFCh5K9tXFd1BXPg
 - XMR: 87PTU58siKNb3WWXcP4Hq4CmCb7kMQUsEiUWFT7SvvMMUqVw9XXFGrJZqmnGvuJLGtLoRuEqovTG4SWqkPr8YLopTSxZkkL
