@@ -121,8 +121,8 @@ if ans == 'y' or ans == 'Y':
 # user wants to track dice rolls
 elif ans == 'n' or ans == 'N':
     # input result of dice rolls
-    print(color.GREEN + "Let's go! It may take some time" + color.END)
-    print('Simply tipe the result of each time you roll your dice')
+    print(color.GREEN + "Let's go! It may take a while" + color.END)
+    print('Simply type the result of each time you roll your dice')
     dicerolls = 0
     while dicerolls < 256:
         res = input(f'insert {dicerolls +1} number: ')
