@@ -121,24 +121,22 @@ if ans == 'y' or ans == 'Y':
 # user wants to track dice rolls
 elif ans == 'n' or ans == 'N':
     # input result of dice rolls
-    print(color.GREEN + "Let's go! It may take a while" + color.END)
+    print(color.GREEN + "Let's go! This may take a while" + color.END)
     print('Simply type the result of each time you roll your dice')
     dicerolls = 0
     while dicerolls < 256:
         res = input(f'insert {dicerolls +1} number: ')
-        if res == '':
-            print(color.RED + 'Unallowed input!' + color.END)
-        elif res.isalpha():
-            print(color.RED + 'Unallowed input!' + color.END)
-        else:
+        if res.isdigit():
             res = int(res)
             if res > 6 or res < 1 or res == '':
-                print(color.RED + 'Unallowed input!' + color.END)
+                print(color.RED + 'Unallowed input! Only 6 faces dices are supported' + color.END)
             else:
                 res = res % 2
                 res = str(res)
                 dicestr += res
                 dicerolls += 1
+        else:
+            print(color.RED + 'Unallowed input!' + color.END)
 
 # Printing the result of all the dice rolls
     print(color.DARKCYAN + '\nThis is your binary key:' + color.END)
