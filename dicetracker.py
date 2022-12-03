@@ -314,7 +314,7 @@ else:
 ft.write('<p></p><p></p><p><em>Made with dicetracker.py<br>More info at https://anubitux.org</em></p>')
 ft.write('</body>')
 ft.close()
-pdfkit.from_file('PaperWallet/temp.html', 'PaperWallet/paperwallet.pdf')
+pdfkit.from_file('PaperWallet/temp.html', 'PaperWallet/paperwallet.pdf', options={"enable-local-file-access": ""})
 os.remove('PaperWallet/temp.html')
 
 if qr:
