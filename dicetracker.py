@@ -283,40 +283,39 @@ elif coin_sel == 10:
         makeqr(addr1, 'address1.png')
 
 
-# generating HTML (temporary) and PDF File
-ft = open('PaperWallet/temp.html', 'w')
-ft.write('<!doctype html>\n<body>')
-if exists('PaperWallet/logo.png'):
-    ft.write('<p><img src="logo.png" width="100" height="100"></p>')
-ft.write('<h4>PAPER WALLET</h4>')
-if coin_sel < 10:
-    ft.write('<p>Coin: ' + str(coins_dict[coin_sel]) + '</p>')
-elif coin_sel == 10:
-    ft.write('<p>Coin: XMR</p>')
-ft.write('<p><strong>Public address: </strong>' + addr1 + '</p>')
-ft.write('<p><img src="address1.png" width="200" height="200"></p>')
-if coin_sel == 1 or coin_sel == 3:
-    ft.write('<p><strong>Segwit address: </strong>' + addr2 + '</p>')
-    ft.write('<p><img src="address2.png" width="200" height="200"></p>')
-    ft.write('<p><strong>Bech32 address: </strong>' + addr3 + '</p>')
-    ft.write('<p><img src="address3.png" width="200" height="200"></p>')
-if coin_sel == 2:
-    ft.write('<p><strong>Private key: </strong>' + ETH_priv + '</p>')
-    ft.write('<p><img src="private_key.png" width="200" height="200"></p>')
-elif coin_sel == 10:
-    ft.write('<p><strong>Secret spend key: </strong>' + ssk + '</p>')
-    ft.write('<p><img src="ssk.png" width="200" height="200"></p>')
-    ft.write('<p><strong>Secret view key: </strong>' + svk + '</p>')
-    ft.write('<p><img src="svk.png" width="200" height="200"></p>')
-else:
-    ft.write('<p><strong>Private key: </strong>' + WIF_priv + '</p>')
-    ft.write('<p><img src="private_key.png" width="200" height="200"></p>')
-ft.write('<p></p><p></p><p><em>Made with dicetracker.py<br>More info at https://anubitux.org</em></p>')
-ft.write('</body>')
-ft.close()
-pdfkit.from_file('PaperWallet/temp.html', 'PaperWallet/paperwallet.pdf', options={"enable-local-file-access": ""})
-os.remove('PaperWallet/temp.html')
-
 if qr:
+    # generating HTML (temporary) and PDF File
+    ft = open('PaperWallet/temp.html', 'w')
+    ft.write('<!doctype html>\n<body>')
+    if exists('PaperWallet/logo.png'):
+        ft.write('<p><img src="logo.png" width="100" height="100"></p>')
+    ft.write('<h4>PAPER WALLET</h4>')
+    if coin_sel < 10:
+        ft.write('<p>Coin: ' + str(coins_dict[coin_sel]) + '</p>')
+    elif coin_sel == 10:
+        ft.write('<p>Coin: XMR</p>')
+    ft.write('<p><strong>Public address: </strong>' + addr1 + '</p>')
+    ft.write('<p><img src="address1.png" width="200" height="200"></p>')
+    if coin_sel == 1 or coin_sel == 3:
+        ft.write('<p><strong>Segwit address: </strong>' + addr2 + '</p>')
+        ft.write('<p><img src="address2.png" width="200" height="200"></p>')
+        ft.write('<p><strong>Bech32 address: </strong>' + addr3 + '</p>')
+        ft.write('<p><img src="address3.png" width="200" height="200"></p>')
+    if coin_sel == 2:
+        ft.write('<p><strong>Private key: </strong>' + ETH_priv + '</p>')
+        ft.write('<p><img src="private_key.png" width="200" height="200"></p>')
+    elif coin_sel == 10:
+        ft.write('<p><strong>Secret spend key: </strong>' + ssk + '</p>')
+        ft.write('<p><img src="ssk.png" width="200" height="200"></p>')
+        ft.write('<p><strong>Secret view key: </strong>' + svk + '</p>')
+        ft.write('<p><img src="svk.png" width="200" height="200"></p>')
+    else:
+        ft.write('<p><strong>Private key: </strong>' + WIF_priv + '</p>')
+        ft.write('<p><img src="private_key.png" width="200" height="200"></p>')
+    ft.write('<p></p><p></p><p><em>Made with dicetracker.py<br>More info at https://anubitux.org</em></p>')
+    ft.write('</body>')
+    ft.close()
+    pdfkit.from_file('PaperWallet/temp.html', 'PaperWallet/paperwallet.pdf')
+    os.remove('PaperWallet/temp.html')
     print(color. DARKCYAN + '\nYour paper wallet can be found in the PaperWallet directory in the DiceTracker.py folder' + color.END)
 print('')
