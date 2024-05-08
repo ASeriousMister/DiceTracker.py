@@ -7,7 +7,8 @@ import qrcode
 import os
 import pdfkit
 from os.path import exists
-
+import bitcash
+from bitcash import Key
 
 class color:
     PURPLE = '\033[95m'
@@ -243,6 +244,16 @@ if coin_sel == 2:
         makeqr(ETH_priv, 'private_key.png')
     addr1 = hdwallet.p2pkh_address()
     print('P2PKH Address: ', addr1)
+    if qr:
+        makeqr(addr1, 'address1.png')
+elif coin_sel == 4:
+    WIF_priv = hdwallet.wif()
+    print('Wallet Important Format private key: ', WIF_priv)
+    if qr:
+        makeqr(WIF_priv, 'private_key.png')
+    key = Key(WIF_priv)
+    addr1 = key.address
+    print('Address: ', addr1)
     if qr:
         makeqr(addr1, 'address1.png')
 elif coin_sel == 1 or (coin_sel > 2 and coin_sel < 10):
